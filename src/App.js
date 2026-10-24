@@ -1,5 +1,7 @@
+import ContactPage from "./pages/ContactPage";
+
 function App() {
-  return <div>Hello</div>;
+  return <ContactPage />;
 }
 
 export default App;
