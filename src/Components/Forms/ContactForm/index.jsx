@@ -35,7 +35,7 @@ function ContactForm() {
 
         return (
           <Form className={styles.contactForm}>
-            <header>CREATE AN ACCOUNT</header>
+            <header className={styles.formHeader}>CREATE AN ACCOUNT</header>
 
             <label>
               <span>Your name:</span>
@@ -112,7 +112,7 @@ function ContactForm() {
                 component="span"
               />
             </label>
-            <button type="submit">Create account</button>
+            <button className={styles.submitFormBtn} type="submit">Create account</button>
           </Form>
         );
       }}
