@@ -6,7 +6,7 @@ export const FORM_VALIDATION = yup.object({
   phone: yup
     .string()
     .length(11)
-    .matches(/^\+\d{12}$/, "Phone must be: +1111111111"),
+    .matches(/^\+\d{10}$/, "Phone must be: +1111111111"),
   email: yup.string().email().required(),
   password: yup.string().min(6).required(),
   passwordConfirmation: yup
