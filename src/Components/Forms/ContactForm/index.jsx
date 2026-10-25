@@ -18,28 +18,13 @@ function ContactForm() {
       validationSchema={FORM_VALIDATION}
     >
       {(formikProps) => {
-        const nameStyle = classNames(styles.input, {
-          [styles.valid]: !formikProps.errors.name && formikProps.touched.name,
-          [styles.invalid]: formikProps.errors.name && formikProps.touched.name,
-        });
-        const lastnameStyle = classNames(styles.input, {
-          [styles.valid]:
-            !formikProps.errors.lastname && formikProps.touched.lastname,
-          [styles.invalid]:
-            formikProps.errors.lastname && formikProps.touched.lastname,
-        });
-        const phoneStyle = classNames(styles.input, {
-          [styles.valid]:
-            !formikProps.errors.phone && formikProps.touched.phone,
-          [styles.invalid]:
-            formikProps.errors.phone && formikProps.touched.phone,
-        });
-        const emailStyle = classNames(styles.input, {
-          [styles.valid]:
-            !formikProps.errors.email && formikProps.touched.email,
-          [styles.invalid]:
-            formikProps.errors.email && formikProps.touched.email,
-        });
+        const classGiver = (name) =>
+          classNames(styles.input, {
+            [styles.valid]:
+              !formikProps.errors[name] && formikProps.touched[name],
+            [styles.invalid]:
+              formikProps.errors[name] && formikProps.touched[name],
+          });
 
         return (
           <Form className={styles.contactForm}>
@@ -47,7 +32,12 @@ function ContactForm() {
 
             <label>
               <span>Your name:</span>
-              <Field className={nameStyle} type="text" name="name" autoFocus />
+              <Field
+                className={classGiver("name")}
+                type="text"
+                name="name"
+                autoFocus
+              />
               <ErrorMessage
                 className={styles.err}
                 name="name"
@@ -56,7 +46,11 @@ function ContactForm() {
             </label>
             <label>
               <span>Your lastname:</span>
-              <Field className={lastnameStyle} type="text" name="lastname" />
+              <Field
+                className={classGiver("lastname")}
+                type="text"
+                name="lastname"
+              />
               <ErrorMessage
                 className={styles.err}
                 name="lastname"
@@ -65,7 +59,7 @@ function ContactForm() {
             </label>
             <label>
               <span>Phone number:</span>
-              <Field className={phoneStyle} type="tel" name="phone" />
+              <Field className={classGiver("phone")} type="tel" name="phone" />
               <ErrorMessage
                 className={styles.err}
                 name="phone"
@@ -74,7 +68,11 @@ function ContactForm() {
             </label>
             <label>
               <span>Email:</span>
-              <Field className={emailStyle} type="email" name="email" />
+              <Field
+                className={classGiver("email")}
+                type="email"
+                name="email"
+              />
               <ErrorMessage
                 className={styles.err}
                 name="email"
