@@ -12,5 +12,5 @@ export const FORM_VALIDATION = yup.object({
   passwordConfirmation: yup
     .string()
     .oneOf([yup.ref("password")], "Must repeat password")
-    .required(),
+    .required("It is a required field"),
 });
