@@ -11,6 +11,6 @@ export const FORM_VALIDATION = yup.object({
   password: yup.string().min(6).required(),
   passwordConfirmation: yup
     .string()
-    .oneOf([yup.ref("password")])
+    .oneOf([yup.ref("password")], "Must repeat password")
     .required(),
 });

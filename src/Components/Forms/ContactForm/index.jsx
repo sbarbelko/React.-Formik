@@ -5,7 +5,14 @@ import styles from "./ContactForm.module.sass";
 import classNames from "classnames";
 
 function ContactForm() {
-  const initialValues = { name: "", lastname: "", phone: "", email: "" };
+  const initialValues = {
+    name: "",
+    lastname: "",
+    phone: "",
+    email: "",
+    password: "",
+    passwordConfirmation: "",
+  };
 
   const handleSubmit = (values, formikBag) => {
     formikBag.resetForm();
@@ -76,6 +83,32 @@ function ContactForm() {
               <ErrorMessage
                 className={styles.err}
                 name="email"
+                component="span"
+              />
+            </label>
+            <label>
+              <span>Password:</span>
+              <Field
+                className={classGiver("password")}
+                type="password"
+                name="password"
+              />
+              <ErrorMessage
+                className={styles.err}
+                name="password"
+                component="span"
+              />
+            </label>
+            <label>
+              <span>Passsword confirmation:</span>
+              <Field
+                className={classGiver("passwordConfirmation")}
+                type="password"
+                name="passwordConfirmation"
+              />
+              <ErrorMessage
+                className={styles.err}
+                name="passwordConfirmation"
                 component="span"
               />
             </label>
